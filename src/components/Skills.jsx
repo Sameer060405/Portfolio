@@ -29,14 +29,14 @@ const cats = [
 ]
 
 const A = {
-  cyan:    { card: 'cut-card',           label: '#00e5ff', badge: 'badge-c', dot: 'rgba(0,229,255,0.6)' },
-  crimson: { card: 'cut-card cut-card-crimson', label: '#ff6b88', badge: 'badge-r', dot: 'rgba(255,45,85,0.6)' },
-  purple:  { card: 'cut-card cut-card-purple',  label: '#c084fc', badge: 'badge-p', dot: 'rgba(168,85,247,0.6)' },
+  cyan:    { card: 'cut-card',                  label: '#e8a820', badge: 'badge-c', dot: 'rgba(200,134,10,0.6)' },
+  crimson: { card: 'cut-card cut-card-crimson', label: '#e8823a', badge: 'badge-r', dot: 'rgba(224,90,32,0.6)' },
+  purple:  { card: 'cut-card cut-card-purple',  label: '#c084fc', badge: 'badge-p', dot: 'rgba(155,77,202,0.6)' },
 }
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 relative">
+    <section id="skills" className="py-24 px-6 relative stone-section">
       <div className="section-top" />
       <div className="max-w-6xl mx-auto">
 

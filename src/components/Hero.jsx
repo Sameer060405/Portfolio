@@ -9,10 +9,10 @@ const TYPED_WORDS = [
 ]
 
 function useTypewriter(words, speed = 85) {
-  const [text, setText]       = useState('')
-  const [idx, setIdx]         = useState(0)
-  const [deleting, setDel]    = useState(false)
-  const [pause, setPause]     = useState(false)
+  const [text, setText]    = useState('')
+  const [idx, setIdx]      = useState(0)
+  const [deleting, setDel] = useState(false)
+  const [pause, setPause]  = useState(false)
 
   useEffect(() => {
     if (pause) {
@@ -44,66 +44,61 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden"
-      style={{
-        backgroundImage: 'url(./Main_page.jpeg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
-      {/* ── Dark overlay so text stays readable ── */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: 'linear-gradient(to right, rgba(8,9,20,0.88) 0%, rgba(8,9,20,0.72) 45%, rgba(8,9,20,0.80) 100%)',
-          zIndex: 0,
-        }}
-      />
+      {/* Dark vignette overlay — lets the 3D corridor show through */}
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(ellipse 80% 80% at 50% 50%, rgba(6,4,2,0.15) 0%, rgba(6,4,2,0.7) 100%)',
+        zIndex: 0,
+      }} />
 
-      {/* ── Bottom fade into rest of page ── */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #0c0e1c)', zIndex: 1 }}
-      />
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none" style={{
+        background: 'linear-gradient(to bottom, transparent, rgba(6,4,2,0.95))',
+        zIndex: 1,
+      }} />
 
-      {/* ── HUD corner brackets ── */}
+      {/* ── Ancient corner bracket decorations ── */}
       {[
-        'top-[76px] left-6 border-t border-l',
+        'top-[76px] left-6  border-t border-l',
         'top-[76px] right-6 border-t border-r',
-        'bottom-12 left-6 border-b border-l',
-        'bottom-12 right-6 border-b border-r',
+        'bottom-12  left-6  border-b border-l',
+        'bottom-12  right-6 border-b border-r',
       ].map((cls, i) => (
-        <div
-          key={i}
-          className={`absolute w-10 h-10 ${cls}`}
-          style={{
-            borderColor: i < 2 ? 'rgba(0,229,255,0.4)' : 'rgba(255,45,85,0.35)',
-            zIndex: 2,
-          }}
-        />
+        <div key={i} className={`absolute w-10 h-10 ${cls}`} style={{
+          borderColor: 'rgba(200,134,10,0.4)',
+          zIndex: 2,
+        }} />
       ))}
+
+      {/* ── Horizontal rune lines ── */}
+      <div className="absolute left-0 right-0 pointer-events-none" style={{ top: '76px', zIndex: 2 }}>
+        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 5%, rgba(200,134,10,0.12) 25%, rgba(200,134,10,0.12) 75%, transparent 95%)' }} />
+      </div>
+      <div className="absolute left-0 right-0 pointer-events-none bottom-12" style={{ zIndex: 2 }}>
+        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 5%, rgba(200,134,10,0.12) 25%, rgba(200,134,10,0.12) 75%, transparent 95%)' }} />
+      </div>
 
       <div className="relative max-w-4xl mx-auto" style={{ zIndex: 3 }}>
 
-        {/* Status pill */}
+        {/* Status rune */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-center gap-2 mb-10 px-4 py-1.5 border font-mono text-xs tracking-[0.15em]"
           style={{
-            background: 'rgba(0,229,255,0.1)',
-            borderColor: 'rgba(0,229,255,0.45)',
-            color: '#00e5ff',
+            background: 'rgba(200,134,10,0.08)',
+            borderColor: 'rgba(200,134,10,0.4)',
+            color: '#e8a820',
             borderRadius: '2px',
-            backdropFilter: 'blur(4px)',
+            backdropFilter: 'blur(8px)',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#c8860a] animate-pulse" style={{ boxShadow: '0 0 6px rgba(200,134,10,0.8)' }} />
           AVAILABLE · OPEN TO WORK
         </motion.div>
 
-        {/* ── Name with glitch ── */}
+        {/* ── Name carved in stone ── */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,7 +109,7 @@ export default function Hero() {
             style={{ fontSize: 'clamp(3rem, 10vw, 7rem)', letterSpacing: '0.04em' }}
           >
             <span
-              className="glitch-wrap text-glow-cyan"
+              className="glitch-wrap torch-flicker"
               data-text="SAMEER"
               style={{ color: '#ffffff', display: 'inline-block' }}
             >
@@ -129,15 +124,15 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        {/* ── Typed role ── */}
+        {/* ── Typewriter role ── */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mb-6 h-9 flex items-center justify-center"
         >
-          <span className="font-mono text-base md:text-xl tracking-wide text-slate-300">
-            <span style={{ color: '#00e5ff', fontWeight: 700, textShadow: '0 0 16px rgba(0,229,255,0.6)' }}>{typed}</span>
+          <span className="font-mono text-base md:text-xl tracking-wide" style={{ color: '#8a7a5a' }}>
+            <span style={{ color: '#e8a820', fontWeight: 700, textShadow: '0 0 16px rgba(200,134,10,0.6)' }}>{typed}</span>
             <span className="cursor" />
           </span>
         </motion.div>
@@ -147,37 +142,30 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.65 }}
-          className="max-w-lg mx-auto mb-12 text-slate-300 text-base md:text-lg leading-relaxed font-light"
+          className="max-w-lg mx-auto mb-12 text-base md:text-lg leading-relaxed font-light"
+          style={{ color: '#8a7a5a' }}
         >
           Building scalable systems, AI agents, and real-time applications.
         </motion.p>
 
-        {/* ── CTA ── */}
+        {/* ── CTA Buttons ── */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <a
-            href="#projects"
+          <a href="#projects"
             onClick={e => { e.preventDefault(); document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' }) }}
-            className="btn btn-cyan-solid text-[0.8rem] tracking-wide px-7 py-3 font-semibold"
-          >
+            className="btn btn-cyan-solid text-[0.8rem] tracking-wide px-7 py-3 font-semibold">
             <TargetIcon size={14} /> VIEW PROJECTS
           </a>
-          <a
-            href="https://github.com/Sameer060405"
-            target="_blank" rel="noopener noreferrer"
-            className="btn btn-ghost text-[0.8rem] tracking-wide px-7 py-3 font-semibold"
-          >
+          <a href="https://github.com/Sameer060405" target="_blank" rel="noopener noreferrer"
+            className="btn btn-ghost text-[0.8rem] tracking-wide px-7 py-3 font-semibold">
             <GithubIcon size={14} /> GITHUB
           </a>
-          <a
-            href="https://www.linkedin.com/in/sameer-kaushik-0a9aa5274/"
-            target="_blank" rel="noopener noreferrer"
-            className="btn btn-purple text-[0.8rem] tracking-wide px-7 py-3 font-semibold"
-          >
+          <a href="https://www.linkedin.com/in/sameer-kaushik-0a9aa5274/" target="_blank" rel="noopener noreferrer"
+            className="btn btn-purple text-[0.8rem] tracking-wide px-7 py-3 font-semibold">
             <LinkedinIcon size={14} /> LINKEDIN
           </a>
         </motion.div>
@@ -191,12 +179,12 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         style={{ zIndex: 3 }}
       >
-        <span className="text-[10px] text-slate-500 tracking-[0.3em] font-mono">SCROLL</span>
+        <span className="text-[10px] tracking-[0.3em] font-mono" style={{ color: 'rgba(200,134,10,0.4)' }}>DESCEND</span>
         <motion.div
           animate={{ scaleY: [0.6, 1, 0.6], opacity: [0.3, 0.7, 0.3] }}
           transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
           className="w-px h-10"
-          style={{ background: 'linear-gradient(180deg, rgba(0,229,255,0.5), transparent)' }}
+          style={{ background: 'linear-gradient(180deg, rgba(200,134,10,0.6), transparent)' }}
         />
       </motion.div>
     </section>

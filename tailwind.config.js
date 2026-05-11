@@ -1,47 +1,62 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      fontFamily: {
-        orbitron: ['Orbitron', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-      },
       colors: {
-        cyan: {
-          400: '#22d3ee',
-          500: '#06b6d4',
-          neon: '#00e5ff',
-        },
-        purple: {
-          neon: '#a855f7',
-        },
-        dark: {
-          900: '#070712',
-          800: '#0d0d1f',
-          700: '#111126',
-          600: '#161630',
+        bg: '#050505',
+        'bg-2': '#0d0d0d',
+        'bg-3': '#111111',
+        orange: {
+          DEFAULT: '#FF4500',
+          bright: '#FF6B35',
+          dim: '#CC3700',
         },
       },
-      boxShadow: {
-        'neon-cyan': '0 0 12px rgba(0, 229, 255, 0.4)',
-        'neon-purple': '0 0 12px rgba(168, 85, 247, 0.4)',
-        'neon-blue': '0 0 12px rgba(59, 130, 246, 0.4)',
-        'card-hover': '0 0 24px rgba(0, 229, 255, 0.15)',
-      },
-      animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
+      fontFamily: {
+        heading: ['var(--font-heading)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '0%,100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-18px)' },
         },
+        'float-r': {
+          '0%,100%': { transform: 'translateY(0px) rotate(15deg)' },
+          '50%': { transform: 'translateY(-14px) rotate(15deg)' },
+        },
+        'pulse-ring': {
+          '0%': { transform: 'scale(0.9)', opacity: '0.8' },
+          '100%': { transform: 'scale(1.5)', opacity: '0' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'dash-in': {
+          '0%': { strokeDashoffset: '1000' },
+          '100%': { strokeDashoffset: '0' },
+        },
+      },
+      animation: {
+        float: 'float 7s ease-in-out infinite',
+        'float-r': 'float-r 9s ease-in-out infinite',
+        'pulse-ring': 'pulse-ring 2s cubic-bezier(0.215,0.61,0.355,1) infinite',
+        shimmer: 'shimmer 2.5s linear infinite',
+        'spin-slow': 'spin-slow 25s linear infinite',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

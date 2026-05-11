@@ -124,35 +124,35 @@ const projects = [
 const A = {
   cyan: {
     card: 'cut-card',
-    tag: { bg: 'rgba(0,229,255,0.08)', color: '#00e5ff', border: 'rgba(0,229,255,0.28)' },
-    bullet: '#00e5ff',
+    tag: { bg: 'rgba(200,134,10,0.1)', color: '#e8a820', border: 'rgba(200,134,10,0.35)' },
+    bullet: '#e8a820',
     badge: 'badge-c',
-    back: 'rgba(0,229,255,0.3)',
+    back: 'rgba(200,134,10,0.25)',
     btn: 'btn-cyan',
   },
   crimson: {
     card: 'cut-card cut-card-crimson',
-    tag: { bg: 'rgba(255,45,85,0.08)', color: '#ff2d55', border: 'rgba(255,45,85,0.28)' },
-    bullet: '#ff2d55',
+    tag: { bg: 'rgba(224,90,32,0.1)', color: '#e8823a', border: 'rgba(224,90,32,0.35)' },
+    bullet: '#e8823a',
     badge: 'badge-r',
-    back: 'rgba(255,45,85,0.3)',
+    back: 'rgba(224,90,32,0.25)',
     btn: 'btn-crimson',
   },
   purple: {
     card: 'cut-card cut-card-purple',
-    tag: { bg: 'rgba(168,85,247,0.08)', color: '#c084fc', border: 'rgba(168,85,247,0.28)' },
-    bullet: '#a855f7',
+    tag: { bg: 'rgba(155,77,202,0.1)', color: '#c084fc', border: 'rgba(155,77,202,0.35)' },
+    bullet: '#c084fc',
     badge: 'badge-p',
-    back: 'rgba(168,85,247,0.3)',
+    back: 'rgba(155,77,202,0.25)',
     btn: 'btn-purple',
   },
 }
 
 /* Category badge styles */
 const CAT_STYLE = {
-  'Full Stack': { color: '#00e5ff',  bg: 'rgba(0,229,255,0.08)',  border: 'rgba(0,229,255,0.2)' },
-  'AI / ML':   { color: '#c084fc',  bg: 'rgba(168,85,247,0.08)', border: 'rgba(168,85,247,0.2)' },
-  'Data':      { color: '#ff6b88',  bg: 'rgba(255,45,85,0.08)',  border: 'rgba(255,45,85,0.2)' },
+  'Full Stack': { color: '#e8a820', bg: 'rgba(200,134,10,0.08)', border: 'rgba(200,134,10,0.22)' },
+  'AI / ML':   { color: '#c084fc', bg: 'rgba(155,77,202,0.08)', border: 'rgba(155,77,202,0.22)' },
+  'Data':      { color: '#e8823a', bg: 'rgba(224,90,32,0.08)',  border: 'rgba(224,90,32,0.22)'  },
 }
 
 function Card({ project }) {
@@ -275,7 +275,7 @@ export default function Projects() {
   const visible = filter === ALL ? projects : projects.filter(p => p.category === filter)
 
   return (
-    <section id="projects" className="py-24 px-6 relative">
+    <section id="projects" className="py-24 px-6 relative stone-section">
       <div className="section-top" />
       <div className="max-w-6xl mx-auto">
 
@@ -313,16 +313,16 @@ export default function Projects() {
                 style={{
                   borderRadius: '2px',
                   background: active
-                    ? (cat === ALL ? 'rgba(0,229,255,0.12)' : cs.bg)
-                    : 'rgba(255,255,255,0.03)',
+                    ? (cat === ALL ? 'rgba(200,134,10,0.12)' : cs.bg)
+                    : 'rgba(255,255,255,0.02)',
                   border: `1px solid ${active
-                    ? (cat === ALL ? 'rgba(0,229,255,0.4)' : cs.border.replace('0.2)', '0.5)'))
-                    : 'rgba(255,255,255,0.07)'}`,
+                    ? (cat === ALL ? 'rgba(200,134,10,0.45)' : cs.border.replace('0.22)', '0.5)'))
+                    : 'rgba(200,134,10,0.08)'}`,
                   color: active
-                    ? (cat === ALL ? '#00e5ff' : cs.color)
-                    : '#4a5a6a',
+                    ? (cat === ALL ? '#e8a820' : cs.color)
+                    : '#4a3a20',
                   boxShadow: active
-                    ? `0 0 14px ${cat === ALL ? 'rgba(0,229,255,0.15)' : cs.bg}`
+                    ? `0 0 14px ${cat === ALL ? 'rgba(200,134,10,0.15)' : cs.bg}`
                     : 'none',
                 }}
               >

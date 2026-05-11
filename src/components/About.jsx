@@ -25,14 +25,14 @@ const focuses = [
 ]
 
 const A = {
-  cyan:    { card: 'cut-card',                  label: '#00e5ff', dot: 'rgba(0,229,255,0.7)' },
-  crimson: { card: 'cut-card cut-card-crimson', label: '#ff6b88', dot: 'rgba(255,45,85,0.7)' },
-  purple:  { card: 'cut-card cut-card-purple',  label: '#c084fc', dot: 'rgba(168,85,247,0.7)' },
+  cyan:    { card: 'cut-card',                  label: '#e8a820', dot: 'rgba(200,134,10,0.7)' },
+  crimson: { card: 'cut-card cut-card-crimson', label: '#e8823a', dot: 'rgba(224,90,32,0.7)' },
+  purple:  { card: 'cut-card cut-card-purple',  label: '#c084fc', dot: 'rgba(155,77,202,0.7)' },
 }
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 relative">
+    <section id="about" className="py-24 px-6 relative stone-section">
       <div className="section-top" />
       <div className="max-w-6xl mx-auto">
 
@@ -62,7 +62,7 @@ export default function About() {
           >
             <div className="space-y-4 text-slate-300 leading-relaxed text-[0.95rem]">
               <p>
-                I'm <span className="text-[#00e5ff] font-semibold">Sameer Kaushik</span> — a developer
+                I'm <span className="font-semibold" style={{ color: '#e8a820' }}>Sameer Kaushik</span> — a developer
                 at the intersection of software engineering, data science, and AI. I build systems
                 that are fast, intelligent, and built to last.
               </p>
@@ -89,8 +89,8 @@ export default function About() {
                   key={s.l}
                   className="cut-card p-4 text-center"
                 >
-                  <div className="font-orbitron font-black text-2xl text-[#00e5ff] mb-1"
-                    style={{ textShadow: '0 0 12px rgba(0,229,255,0.4)' }}>
+                  <div className="font-orbitron font-black text-2xl mb-1"
+                    style={{ color: '#e8a820', textShadow: '0 0 12px rgba(200,134,10,0.5)' }}>
                     {s.v}
                   </div>
                   <div className="text-[10px] text-slate-500 font-mono tracking-wider">{s.l}</div>

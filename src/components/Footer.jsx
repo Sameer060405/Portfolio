@@ -2,14 +2,14 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="border-t py-8 px-6" style={{ borderColor: 'rgba(0,229,255,0.07)' }}>
+    <footer className="border-t py-8 px-6" style={{ borderColor: 'rgba(200,134,10,0.1)', background: 'rgba(6,4,2,0.6)' }}>
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 
         {/* Logo + credit */}
         <div className="flex items-center gap-3">
           <svg width="22" height="25" viewBox="0 0 32 36" fill="none">
-            <polygon points="16,1 30,9 30,27 16,35 2,27 2,9" fill="none" stroke="rgba(0,229,255,0.4)" strokeWidth="1.2"/>
-            <text x="16" y="22" textAnchor="middle" fontFamily="Orbitron,sans-serif" fontWeight="800" fontSize="10" fill="#00e5ff">SK</text>
+            <polygon points="16,1 30,9 30,27 16,35 2,27 2,9" fill="none" stroke="rgba(200,134,10,0.5)" strokeWidth="1.2"/>
+            <text x="16" y="22" textAnchor="middle" fontFamily="Orbitron,sans-serif" fontWeight="800" fontSize="10" fill="#c8860a">SK</text>
           </svg>
           <span className="text-slate-500 text-xs font-mono">Built by Sameer Kaushik</span>
         </div>
@@ -21,9 +21,9 @@ export default function Footer() {
         {/* Socials */}
         <div className="flex items-center gap-5">
           {[
-            { href: 'https://github.com/Sameer060405', label: 'GitHub', hoverColor: '#00e5ff', icon: <GithubIcon /> },
+            { href: 'https://github.com/Sameer060405', label: 'GitHub', hoverColor: '#e8a820', icon: <GithubIcon /> },
             { href: 'https://www.linkedin.com/in/sameer-kaushik-0a9aa5274/', label: 'LinkedIn', hoverColor: '#c084fc', icon: <LinkedinIcon /> },
-            { href: 'mailto:sameerkaushik933@gmail.com', label: 'Email', hoverColor: '#ff6b88', icon: <EmailIcon /> },
+            { href: 'mailto:sameerkaushik933@gmail.com', label: 'Email', hoverColor: '#e8823a', icon: <EmailIcon /> },
           ].map(s => (
             <a
               key={s.label}

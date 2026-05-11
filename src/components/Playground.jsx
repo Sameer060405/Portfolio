@@ -119,7 +119,7 @@ function EditorPanel() {
         </div>
 
         {/* Snippet tabs */}
-        <div className="flex border-b border-[rgba(0,229,255,0.06)] overflow-x-auto">
+        <div className="flex border-b border-[rgba(200,134,10,0.08)] overflow-x-auto">
           {Object.entries(SNIPPETS).map(([k, s]) => (
             <button
               key={k}
@@ -163,12 +163,12 @@ function EditorPanel() {
           className="terminal-wrap"
         >
           <div className="terminal-bar">
-            <span className="text-[11px] font-mono" style={{ color: ok ? '#00e5ff' : '#ff2d55' }}>
+            <span className="text-[11px] font-mono" style={{ color: ok ? '#e8a820' : '#e8823a' }}>
               {ok ? '✓ output' : '✗ error'}
             </span>
           </div>
           <pre className="p-4 text-[0.78rem] leading-relaxed overflow-x-auto"
-            style={{ color: ok ? '#7a8fa8' : '#ff6b88', fontFamily: "'JetBrains Mono', monospace" }}>
+            style={{ color: ok ? '#7a8fa8' : '#e8823a', fontFamily: "'JetBrains Mono', monospace" }}>
             {output}
           </pre>
         </motion.div>
@@ -306,7 +306,7 @@ function SnakeGame() {
     ctx.fillRect(0, 0, W, H)
 
     // Subtle grid
-    ctx.strokeStyle = 'rgba(0,229,255,0.04)'
+    ctx.strokeStyle = 'rgba(200,134,10,0.04)'
     ctx.lineWidth   = 0.5
     for (let i = 0; i <= COLS; i++) {
       ctx.beginPath(); ctx.moveTo(i * CELL, 0); ctx.lineTo(i * CELL, H); ctx.stroke()
@@ -320,7 +320,7 @@ function SnakeGame() {
       const isHead = i === 0
       const alpha  = Math.max(0.25, 1 - (i / g.snake.length) * 0.75)
       if (isHead) {
-        ctx.shadowColor = '#00e5ff'; ctx.shadowBlur = 10
+        ctx.shadowColor = '#e8a820'; ctx.shadowBlur = 10
         ctx.fillStyle = '#00e5ff'
       } else {
         ctx.shadowBlur = 0
@@ -333,7 +333,7 @@ function SnakeGame() {
     // Food
     const fx = g.food.x * CELL + CELL / 2
     const fy = g.food.y * CELL + CELL / 2
-    ctx.shadowColor = '#ff2d55'; ctx.shadowBlur = 12
+    ctx.shadowColor = '#e8823a'; ctx.shadowBlur = 12
     ctx.fillStyle   = '#ff2d55'
     ctx.beginPath(); ctx.arc(fx, fy, CELL / 2 - 2, 0, Math.PI * 2); ctx.fill()
     ctx.shadowBlur = 0
@@ -348,17 +348,17 @@ function SnakeGame() {
     ctx.fillRect(0, 0, W, H)
 
     // Border glow
-    ctx.strokeStyle = 'rgba(0,229,255,0.15)'
+    ctx.strokeStyle = 'rgba(200,134,10,0.15)'
     ctx.lineWidth = 1
     ctx.strokeRect(1, 1, W - 2, H - 2)
 
     ctx.textAlign = 'center'
-    ctx.fillStyle = 'rgba(0,229,255,0.35)'
+    ctx.fillStyle = 'rgba(200,134,10,0.35)'
     ctx.font = `bold 13px "JetBrains Mono", monospace`
     ctx.fillText(msg, W / 2, H / 2)
 
     if (msg === 'GAME OVER') {
-      ctx.fillStyle = 'rgba(255,45,85,0.55)'
+      ctx.fillStyle = 'rgba(224,90,32,0.55)'
       ctx.font = `bold 18px "Orbitron", sans-serif`
       ctx.fillText('GAME OVER', W / 2, H / 2 - 22)
     }
@@ -490,15 +490,15 @@ function SnakeGame() {
         <div className="flex items-center gap-6">
           <div>
             <p className="text-[10px] font-mono text-[#2a3a4a] tracking-widest">SCORE</p>
-            <p className="font-orbitron font-bold text-lg text-[#00e5ff]"
-              style={{ textShadow:'0 0 10px rgba(0,229,255,0.5)' }}>
+            <p className="font-orbitron font-bold text-lg text-[#e8a820]"
+              style={{ textShadow:'0 0 10px rgba(200,134,10,0.5)' }}>
               {String(score).padStart(4, '0')}
             </p>
           </div>
           <div>
             <p className="text-[10px] font-mono text-[#2a3a4a] tracking-widest">BEST</p>
-            <p className="font-orbitron font-bold text-lg text-[#ff2d55]"
-              style={{ textShadow:'0 0 10px rgba(255,45,85,0.4)' }}>
+            <p className="font-orbitron font-bold text-lg text-[#e8823a]"
+              style={{ textShadow:'0 0 10px rgba(224,90,32,0.4)' }}>
               {String(best).padStart(4, '0')}
             </p>
           </div>
@@ -512,7 +512,7 @@ function SnakeGame() {
       </div>
 
       {/* Canvas */}
-      <div style={{ border:'1px solid rgba(0,229,255,0.14)', borderRadius:'2px', lineHeight:0 }}>
+      <div style={{ border:'1px solid rgba(200,134,10,0.18)', borderRadius:'2px', lineHeight:0 }}>
         <canvas
           ref={canvasRef}
           width={W}
@@ -529,7 +529,7 @@ function SnakeGame() {
         <span>·</span>
         <span>Swipe on mobile</span>
         <span>·</span>
-        <span style={{ color:'#ff2d55' }}>● food</span>
+        <span style={{ color:'#e8823a' }}>● food</span>
       </div>
     </div>
   )
@@ -542,7 +542,7 @@ export default function Playground() {
   const [tab, setTab] = useState('Editor')
 
   return (
-    <section id="playground" className="py-24 px-6 relative">
+    <section id="playground" className="py-24 px-6 relative stone-section">
       <div className="section-top" />
       <div className="max-w-5xl mx-auto">
 

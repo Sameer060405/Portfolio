@@ -14,8 +14,8 @@ function scrollTo(href) {
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [mobileOpen, setMobile]   = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobile] = useState(false)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 48)
@@ -29,88 +29,60 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#060609]/92 backdrop-blur-md border-b border-[rgba(0,229,255,0.08)]' : 'bg-transparent'
+        scrolled ? 'backdrop-blur-md border-b' : 'bg-transparent'
       }`}
+      style={scrolled ? { background: 'rgba(6,4,2,0.92)', borderColor: 'rgba(200,134,10,0.12)' } : {}}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
 
-        {/* ── Emblem Logo ── */}
+        {/* ── Temple Emblem Logo ── */}
         <a
           href="#hero"
           onClick={e => { e.preventDefault(); scrollTo('#hero') }}
           className="flex items-center gap-2.5 group"
           aria-label="Home"
         >
-          {/* Hexagonal SVG emblem */}
-          <svg width="32" height="36" viewBox="0 0 32 36" fill="none" className="transition-all duration-300 group-hover:drop-shadow-[0_0_6px_rgba(0,229,255,0.7)]">
-            <polygon
-              points="16,1 30,9 30,27 16,35 2,27 2,9"
-              fill="none"
-              stroke="rgba(0,229,255,0.6)"
-              strokeWidth="1.2"
-            />
-            <polygon
-              points="16,6 26,12 26,24 16,30 6,24 6,12"
-              fill="rgba(0,229,255,0.06)"
-              stroke="rgba(0,229,255,0.25)"
-              strokeWidth="0.8"
-            />
-            <text
-              x="16" y="22"
-              textAnchor="middle"
-              fontFamily="Orbitron, sans-serif"
-              fontWeight="800"
-              fontSize="10"
-              fill="#00e5ff"
-              letterSpacing="0.5"
-            >SK</text>
+          <svg width="32" height="36" viewBox="0 0 32 36" fill="none"
+            className="transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(200,134,10,0.7)]">
+            <polygon points="16,1 30,9 30,27 16,35 2,27 2,9"
+              fill="none" stroke="rgba(200,134,10,0.55)" strokeWidth="1.2" />
+            <polygon points="16,6 26,12 26,24 16,30 6,24 6,12"
+              fill="rgba(200,134,10,0.07)" stroke="rgba(200,134,10,0.25)" strokeWidth="0.8" />
+            <line x1="16" y1="1"  x2="16" y2="4"  stroke="rgba(200,134,10,0.4)" strokeWidth="0.8" />
+            <line x1="16" y1="32" x2="16" y2="35" stroke="rgba(200,134,10,0.4)" strokeWidth="0.8" />
+            <text x="16" y="22" textAnchor="middle" fontFamily="Orbitron, sans-serif"
+              fontWeight="800" fontSize="10" fill="#c8860a" letterSpacing="0.5">SK</text>
           </svg>
           <div className="hidden sm:block">
-            <p className="font-orbitron font-bold text-sm text-white leading-none tracking-wider">SAMEER</p>
-            <p className="font-mono text-[10px] text-[rgba(0,229,255,0.55)] tracking-[0.18em] leading-none mt-0.5">KAUSHIK</p>
+            <p className="font-orbitron font-bold text-sm leading-none tracking-wider" style={{ color: '#e8a820' }}>SAMEER</p>
+            <p className="font-mono text-[10px] tracking-[0.18em] leading-none mt-0.5" style={{ color: 'rgba(200,134,10,0.5)' }}>KAUSHIK</p>
           </div>
         </a>
 
         {/* ── Desktop Links ── */}
         <div className="hidden md:flex items-center gap-8">
           {NAV.map(l => (
-            <a
-              key={l.label}
-              href={l.href}
+            <a key={l.label} href={l.href}
               onClick={e => { e.preventDefault(); scrollTo(l.href) }}
-              className="nav-link"
-            >
-              {l.label}
-            </a>
+              className="nav-link">{l.label}</a>
           ))}
-          <a
-            href="https://github.com/Sameer060405"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-cyan text-[0.7rem] px-4 py-2 ml-2"
-          >
-            <GithubIcon size={13} />
-            GitHub
+          <a href="https://github.com/Sameer060405" target="_blank" rel="noopener noreferrer"
+            className="btn btn-cyan text-[0.7rem] px-4 py-2 ml-2">
+            <GithubIcon size={13} /> GitHub
           </a>
         </div>
 
         {/* ── Hamburger ── */}
-        <button
-          className="md:hidden flex flex-col justify-center gap-[5px] p-2 cursor-pointer"
-          onClick={() => setMobile(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
+        <button className="md:hidden flex flex-col justify-center gap-[5px] p-2 cursor-pointer"
+          onClick={() => setMobile(!mobileOpen)} aria-label="Toggle menu">
           {[0, 1, 2].map(i => (
-            <span
-              key={i}
-              className="block h-px bg-[#00e5ff] transition-all duration-300"
-              style={{
-                width: i === 1 ? (mobileOpen ? '24px' : '18px') : '24px',
-                transform: i === 0 ? (mobileOpen ? 'rotate(45deg) translateY(6px)' : '') :
-                           i === 2 ? (mobileOpen ? 'rotate(-45deg) translateY(-6px)' : '') : '',
-                opacity: i === 1 && mobileOpen ? 0 : 1,
-              }}
-            />
+            <span key={i} className="block h-px transition-all duration-300" style={{
+              background: 'rgba(200,134,10,0.7)',
+              width: i === 1 ? (mobileOpen ? '24px' : '18px') : '24px',
+              transform: i === 0 ? (mobileOpen ? 'rotate(45deg) translateY(6px)' : '') :
+                         i === 2 ? (mobileOpen ? 'rotate(-45deg) translateY(-6px)' : '') : '',
+              opacity: i === 1 && mobileOpen ? 0 : 1,
+            }} />
           ))}
         </button>
       </div>
@@ -123,27 +95,18 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.22 }}
-            className="md:hidden bg-[#060609]/96 backdrop-blur-md border-b border-[rgba(0,229,255,0.08)]"
+            style={{ background: 'rgba(6,4,2,0.97)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(200,134,10,0.12)' }}
+            className="md:hidden"
           >
             <div className="px-6 py-5 flex flex-col gap-5">
               {NAV.map(l => (
-                <a
-                  key={l.label}
-                  href={l.href}
+                <a key={l.label} href={l.href}
                   onClick={e => { e.preventDefault(); setMobile(false); scrollTo(l.href) }}
-                  className="nav-link text-slate-300 hover:text-[#00e5ff] font-medium text-sm tracking-widest uppercase"
-                >
-                  {l.label}
-                </a>
+                  className="nav-link font-medium text-sm tracking-widest uppercase">{l.label}</a>
               ))}
-              <a
-                href="https://github.com/Sameer060405"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-cyan text-xs self-start mt-1"
-              >
-                <GithubIcon size={13} />
-                GitHub
+              <a href="https://github.com/Sameer060405" target="_blank" rel="noopener noreferrer"
+                className="btn btn-cyan text-xs self-start mt-1">
+                <GithubIcon size={13} /> GitHub
               </a>
             </div>
           </motion.div>

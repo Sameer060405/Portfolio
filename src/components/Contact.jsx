@@ -23,9 +23,9 @@ const links = [
 ]
 
 const A = {
-  cyan:    { card: 'cut-card',                  color: '#00e5ff', dot: 'rgba(0,229,255,0.7)', btn: 'btn-cyan' },
-  purple:  { card: 'cut-card cut-card-purple',  color: '#c084fc', dot: 'rgba(168,85,247,0.7)', btn: 'btn-purple' },
-  crimson: { card: 'cut-card cut-card-crimson', color: '#ff6b88', dot: 'rgba(255,45,85,0.7)', btn: 'btn-crimson' },
+  cyan:    { card: 'cut-card',                  color: '#e8a820', dot: 'rgba(200,134,10,0.7)', btn: 'btn-cyan' },
+  purple:  { card: 'cut-card cut-card-purple',  color: '#c084fc', dot: 'rgba(155,77,202,0.7)', btn: 'btn-purple' },
+  crimson: { card: 'cut-card cut-card-crimson', color: '#e8823a', dot: 'rgba(224,90,32,0.7)', btn: 'btn-crimson' },
 }
 
 export default function Contact() {
@@ -39,7 +39,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6 relative">
+    <section id="contact" className="py-24 px-6 relative stone-section">
       <div className="section-top" />
       <div className="max-w-5xl mx-auto">
 
@@ -68,8 +68,8 @@ export default function Contact() {
           className="flex mb-14 ml-5"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 border font-mono text-xs tracking-[0.12em]"
-            style={{ background:'rgba(0,229,255,0.04)', borderColor:'rgba(0,229,255,0.18)', color:'#00e5ff', borderRadius:'2px' }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse" />
+            style={{ background:'rgba(200,134,10,0.06)', borderColor:'rgba(200,134,10,0.3)', color:'#e8a820', borderRadius:'2px' }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#c8860a', boxShadow: '0 0 6px rgba(200,134,10,0.7)' }} />
             OPEN TO FULL-TIME · FREELANCE · COLLAB
           </div>
         </motion.div>
